@@ -7,11 +7,11 @@
 \setcounter{tocdepth}{2} % <-- 2 includes up to subsections in the ToC
 \setcounter{secnumdepth}{3} % <-- 3 numbers up to subsubsections
 \manualmark
-\markboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}
+\markboth{\contentsname}{\contentsname}
 \tableofcontents
 \automark[section]{chapter}
-\renewcommand{\chaptermark}[1]{\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}}
-\renewcommand{\sectionmark}[1]{\markright{\textsc{\thesection}\enspace\spacedlowsmallcaps{#1}}}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\enspace #1}}
 %*******************************************************
 % List of Figures and of the Tables
 %*******************************************************
@@ -56,7 +56,7 @@
     %*******************************************************
     %\phantomsection
     \pdfbookmark[1]{Acronyms}{acronyms}
-    \markboth{\spacedlowsmallcaps{Acronyms}}{\spacedlowsmallcaps{Acronyms}}
+    \markboth{Acronyms}{Acronyms}
     \chapter*{略語一覧}
     \begin{acronym}[UMLX]
         \acro{DRY}{Don't Repeat Yourself}
