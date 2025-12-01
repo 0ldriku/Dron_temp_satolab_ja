@@ -168,27 +168,27 @@
     }
     {% Non-Japanese: standard APA format
       \ifcase\value{uniquename}%
-        \usebibmacro{name:apa:family-given}
+        \usebibmacro{name:family-given}
           {\namepartfamily}
-          {\namepartgiven}
+          {\namepartgiveni}
           {\namepartprefix}
           {\namepartsuffix}%
       \or
         \ifuseprefix
-          {\usebibmacro{name:apa:given-family}
+          {\usebibmacro{name:given-family}
             {\namepartfamily}
             {\namepartgiveni}
             {\namepartprefix}
-            {\namepartsuffixi}}
-          {\usebibmacro{name:apa:given-family}
+            {\namepartsuffix}}
+          {\usebibmacro{name:given-family}
             {\namepartfamily}
             {\namepartgiveni}
             {\namepartprefix}
-            {\namepartsuffixi}}%
+            {\namepartsuffix}}%
       \or
-        \usebibmacro{name:apa:family-given}
+        \usebibmacro{name:family-given}
           {\namepartfamily}
-          {\namepartgiven}
+          {\namepartgiveni}
           {\namepartprefix}
           {\namepartsuffix}%
       \fi
