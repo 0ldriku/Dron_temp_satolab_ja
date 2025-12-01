@@ -176,7 +176,12 @@
     test {\ifkeyword{incollectionja}}
   }
     {}
-    {\printtext{\bibstring{in}\intitlepunct}}%
+    {%
+      \ifbool{bbx:in}%
+        {}%
+        {\global\booltrue{bbx:in}%
+         \printtext{\bibstring{in}\addspace}}%
+    }%
 }
 
 % Override editor string macro
@@ -238,7 +243,47 @@
 }
 
 % Use the same format for editors
-\DeclareNameAlias{apaeditor}{apaauthor}
+% \DeclareNameAlias{apaeditor}{apaauthor} % REMOVED: This was forcing Family Given for English too
+
+% Fix editor name format (Given Family for English, Family Given for Japanese)
+\DeclareNameFormat{apaeditor}{%
+  \iffieldequalstr{langid}{japanese}
+    {% Japanese: Family + Given
+      \namepartfamily
+      \namepartgiven
+      \ifnumequal{\value{listcount}}{\value{liststop}}
+        {}
+        {・}%
+    }
+    {% Non-Japanese: Given Family (Initials)
+      \ifcase\value{uniquename}%
+        \usebibmacro{name:given-family}
+          {\namepartfamily}
+          {\namepartgiveni}
+          {\namepartprefix}
+          {\namepartsuffix}%
+      \or
+        \ifuseprefix
+          {\usebibmacro{name:given-family}
+            {\namepartfamily}
+            {\namepartgiveni}
+            {\namepartprefix}
+            {\namepartsuffix}}
+          {\usebibmacro{name:given-family}
+            {\namepartfamily}
+            {\namepartgiveni}
+            {\namepartprefix}
+            {\namepartsuffix}}%
+      \or
+        \usebibmacro{name:given-family}
+          {\namepartfamily}
+          {\namepartgiveni}
+          {\namepartprefix}
+          {\namepartsuffix}%
+      \fi
+    }%
+  \usebibmacro{name:andothers}%
+}
 \DeclareNameAlias{apatranslator}{apaauthor}
 \DeclareNameAlias{apanames}{apaauthor}
 
@@ -309,8 +354,12 @@
     {}%
 }
 
-% Disable italics for Japanese titles
-\DeclareFieldFormat[article,book,inbook,incollection,inproceedings,report,thesis,unpublished]{title}{%
+% Disable italics for Japanese titles, and correct APA styling for non-Japanese
+% Plain titles for articles, chapters, etc.
+\DeclareFieldFormat[article,inbook,incollection,inproceedings]{title}{#1}
+
+% Italic titles for books, reports, etc.
+\DeclareFieldFormat[book,report,thesis,unpublished]{title}{%
   \iffieldequalstr{langid}{japanese}
     {#1}% Japanese: no italics
     {\mkbibemph{#1}}% Non-Japanese: use italics
