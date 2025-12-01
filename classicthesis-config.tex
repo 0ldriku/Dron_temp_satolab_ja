@@ -142,6 +142,11 @@
       \step[fieldsource=langid, match=japanese, final]
       \step[fieldsource=yomi, fieldset=sortname, origfieldval]
     }
+    \map[overwrite]{
+      \step[typesource=incollectionja, typetarget=incollection, final]
+      \step[fieldset=keywords, fieldvalue=incollectionja, append]
+      \step[fieldset=langid, fieldvalue=japanese]
+    }
   }
 }
 
@@ -154,6 +159,42 @@
 %   yomi = {ほそだ, えいじ and やまもと, まさし}
 % Result: 細田衛士・山本雅資 (full name, no comma, ・ separator)
 % Sorting: Uses hiragana yomi field for alphabetical ordering
+
+% Change fixed labels for Japanese references
+% Change fixed labels for Japanese references
+\DefineBibliographyStrings{japanese}{
+  in      = {},   % suppress the leading “In”
+  editor  = {編}, % editor -> 編
+  editors = {編}, % editors -> 編
+}
+
+% Override "In" macro
+\renewbibmacro*{in}{%
+  \ifboolexpr{
+    test {\iffieldequalstr{langid}{japanese}}
+    or
+    test {\ifkeyword{incollectionja}}
+  }
+    {}
+    {\printtext{\bibstring{in}\intitlepunct}}%
+}
+
+% Override editor string macro
+\renewbibmacro*{apaeditorstrg}[1]{%
+  \ifboolexpr{
+    test {\iffieldequalstr{langid}{japanese}}
+    or
+    test {\ifkeyword{incollectionja}}
+  }
+    {編}
+    {\iffieldundef{#1type}
+       {\ifthenelse{\value{#1}>1\OR\ifandothers{#1}}
+          {\bibcpstring{editors}}
+          {\bibcpstring{editor}}}
+       {\ifthenelse{\value{#1}>1\OR\ifandothers{#1}}
+            {\bibcpstring{type\thefield{#1type}s}}
+            {\bibcpstring{type\thefield{#1type}}}}}%
+}
 
 % Override the low-level name format used by APA
 \DeclareNameFormat{apaauthor}{%
@@ -199,6 +240,7 @@
 % Use the same format for editors
 \DeclareNameAlias{apaeditor}{apaauthor}
 \DeclareNameAlias{apatranslator}{apaauthor}
+\DeclareNameAlias{apanames}{apaauthor}
 
 % Also apply to citations (labelname is used for \cite, \parencite, etc.)
 \DeclareNameFormat{labelname}{%
