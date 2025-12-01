@@ -75,6 +75,31 @@ Gradually, we reach {\small small text}, before returning to {\normalsize the de
 
 \textit{Italics}、\textbf{bold}、\spacedallcaps{All Caps}、\textsc{Small Caps}、\spacedlowsmallcaps{Low Small Caps}。
 
+The quick brown fox jumps over the lazy dog
+
+\textit{The quick brown fox jumps over the lazy dog}
+
+\textbf{The quick brown fox jumps over the lazy dog}
+
+
+\textit{\textbf{The quick brown fox jumps over the lazy dog}}
+
+
+
+% Sans-serif regular
+\textsf{The quick brown fox jumps over the lazy dog}
+
+% Sans-serif italic
+\textsf{\textit{The quick brown fox jumps over the lazy dog}}
+
+% Sans-serif bold
+\textsf{\textbf{The quick brown fox jumps over the lazy dog}}
+
+% Sans-serif bold italic
+\textsf{\textbf{\textit{The quick brown fox jumps over the lazy dog}}}
+
+
+\subsection{略語}
 Acronym testing: \ac{UML} -- \acs{UML} -- \acf{UML} -- \acp{UML}
 
 
@@ -338,16 +363,16 @@ HDMI Cable 10ft & Cable & 412 & 15 \\
     }
       \toprule
       % History 1 and 2
-      & \multicolumn{2}{c}{\textsc{歴史 1}}
-      & \multicolumn{2}{c}{\textsc{歴史 2}} \\
+      & \multicolumn{2}{c}{\textsf{歴史 1}}
+      & \multicolumn{2}{c}{\textsf{歴史 2}} \\
       \cmidrule(lr){2-3}\cmidrule(lr){4-5}
       % These are already \multicolumn, so they override 'S' and center
-      & \multicolumn{1}{c}{\textsc{単純}} & \multicolumn{1}{c}{\textsc{複雑}}
-      & \multicolumn{1}{c}{\textsc{単純}} & \multicolumn{1}{c}{\textsc{複雑}} \\
+      & \multicolumn{1}{c}{\textsf{単純}} & \multicolumn{1}{c}{\textsf{複雑}}
+      & \multicolumn{1}{c}{\textsf{単純}} & \multicolumn{1}{c}{\textsf{複雑}} \\
     \midrule
     %------ Syntactic block ------%
     \addlinespace
-    \multicolumn{5}{@{}l}{\textit{構文的複雑さ}} \\
+    \multicolumn{5}{@{}l}{\textsf{構文的複雑さ}} \\
     文の数 (\emph{N})                  & 27   & 28   & 30   & 29   \\
     文の長さ (トークン)              & 24.44 (12.52) & 46.07 (22.36) & 24.77 (9.06) & 47.83 (23.11) \\
     最大文長                   & 54   & 100  & 43   & 95   \\
@@ -356,21 +381,21 @@ HDMI Cable 10ft & Cable & 412 & 15 \\
 
     %------ Lexical block ------%
     \addlinespace
-    \multicolumn{5}{@{}l}{\textit{語彙的複雑さ}} \\
+    \multicolumn{5}{@{}l}{\textsf{語彙的複雑さ}} \\
     高頻度トークン (\%) & 17.74 & 14.45 & 17.01 & 13.90 \\
     中頻度トークン (\%)  & 22.91 & 26.38 & 19.50 & 21.07 \\
     低頻度トークン (\%)  &  3.92 &  5.77 &  5.94 &  7.75 \\
     \midrule
     %------ Science 1 and 2 ------%
-    & \multicolumn{2}{c}{\textsc{科学 1}}
-      & \multicolumn{2}{c}{\textsc{科学 2}} \\
+    & \multicolumn{2}{c}{\textsf{科学 1}}
+      & \multicolumn{2}{c}{\textsf{科学 2}} \\
       \cmidrule(lr){2-3}\cmidrule(lr){4-5}
-      & \multicolumn{1}{c}{\textsc{単純}} & \multicolumn{1}{c}{\textsc{複雑}}
-      & \multicolumn{1}{c}{\textsc{単純}} & \multicolumn{1}{c}{\textsc{複雑}} \\
+      & \multicolumn{1}{c}{\textsf{単純}} & \multicolumn{1}{c}{\textsf{複雑}}
+      & \multicolumn{1}{c}{\textsf{単純}} & \multicolumn{1}{c}{\textsf{複雑}} \\
     \midrule
     %------ Syntactic block ------%
     \addlinespace
-    \multicolumn{5}{@{}l}{\textit{構文的複雑さ}} \\
+    \multicolumn{5}{@{}l}{\textsf{構文的複雑さ}} \\
     文の数 (\emph{N})                  & 26   & 22   & 23   & 25   \\
     文の長さ (トークン)              & 26.31 (7.91) & 57.23 (16.63) & 32.35 (15.81) & 50.32 (19.15) \\
     最大文長                   & 45   & 94   & 87   & 99   \\
@@ -379,7 +404,7 @@ HDMI Cable 10ft & Cable & 412 & 15 \\
 
     %------ Lexical block ------%
     \addlinespace
-    \multicolumn{5}{@{}l}{\textit{語彙的複雑さ}} \\
+    \multicolumn{5}{@{}l}{\textsf{語彙的複雑さ}} \\
     高頻度トークン (\%) & 14.24 & 13.40 & 14.37 & 16.80 \\
     中頻度トークン (\%)  & 26.36 & 27.05 & 27.75 & 29.30 \\
     低頻度トークン (\%)  &  8.94 &  8.77 &  4.46 &  4.46 \\

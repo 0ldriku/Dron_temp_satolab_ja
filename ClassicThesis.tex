@@ -66,8 +66,21 @@
 \definecolor{lightgray}{RGB}{245, 245, 245}
 
 \usepackage{xeCJK}
-  \setmainfont[Ligatures=TeX,Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]{texgyretermes}
-  \setsansfont[BoldFont=Noto Sans CJK JP Bold]{Noto Sans CJK JP}
+  \setmainfont[
+    Ligatures=TeX,
+    UprightFont=* Regular,
+    BoldFont=* Bold,
+    ItalicFont=* Italic,
+    BoldItalicFont=* Bold Italic
+  ]{Noto Serif}
+  \setsansfont[
+    BoldFont=* Bold,
+    ItalicFont=* Italic,
+    BoldItalicFont=* Bold Italic
+  ]{Noto Sans}
+  %\setmonofont[
+  %  BoldFont=* Bold
+  %]{Noto Sans Mono}
   \setCJKmainfont[
     %Scale=MatchLowercase,
     SmallCapsFont = Noto Sans CJK JP,  % Japanese in \section (SmallCaps) -> Gothic
@@ -183,9 +196,9 @@
     \setlength{\cftbeforesecskip}{0.33em}
 
     % Subsection (Gothic Regular, Small)
-    \renewcommand{\cftsubsecfont}{\myHeaderRegularFont\small}
-    \renewcommand{\cftsubsecpagefont}{\myHeaderRegularFont\small}
-    \renewcommand{\cftsubsecpresnum}{\myHeaderRegularFont\small}
+    \renewcommand{\cftsubsecfont}{\captionLightFont\small}
+    \renewcommand{\cftsubsecpagefont}{\captionLightFont\small}
+    \renewcommand{\cftsubsecpresnum}{\captionLightFont\small}
     \setlength{\cftbeforesubsecskip}{0.33em}
     
     % Subsubsection (Gothic Light, Small)
@@ -193,28 +206,28 @@
     \renewcommand{\cftsubsubsecpagefont}{\captionLightFont\small}
     \renewcommand{\cftsubsubsecpresnum}{\captionLightFont\small}
 
-    % List of Figures (Gothic Regular)
+    % List of Figures (Label: Regular, Caption: Light)
     \renewcommand{\listfigurename}{図目次}
     \@ifpackageloaded{babel}{%
         \addto\captionsamerican{\renewcommand{\listfigurename}{図目次}}%
         \addto\captionsenglish{\renewcommand{\listfigurename}{図目次}}%
     }{}
-    \renewcommand{\cftfigfont}{\myHeaderRegularFont\small}
-    \renewcommand{\cftfigpagefont}{\myHeaderRegularFont\small}
-    \renewcommand{\cftfigpresnum}{図~}
-    \renewcommand{\cftfigaftersnum}{}
+    \renewcommand{\cftfigfont}{\captionLightFont\small}
+    \renewcommand{\cftfigpagefont}{\captionLightFont\small}
+    \renewcommand{\cftfigpresnum}{\myHeaderRegularFont\small 図~}
+    \renewcommand{\cftfigaftersnum}{\captionLightFont\small}
     \setlength{\cftfignumwidth}{4em}
     
-    % List of Tables (Gothic Regular)
+    % List of Tables (Label: Regular, Caption: Light)
     \renewcommand{\listtablename}{表目次}
     \@ifpackageloaded{babel}{%
         \addto\captionsamerican{\renewcommand{\listtablename}{表目次}}%
         \addto\captionsenglish{\renewcommand{\listtablename}{表目次}}%
     }{}
-    \renewcommand{\cfttabfont}{\myHeaderRegularFont\small}
-    \renewcommand{\cfttabpagefont}{\myHeaderRegularFont\small}
-    \renewcommand{\cfttabpresnum}{表~}
-    \renewcommand{\cfttabaftersnum}{}
+    \renewcommand{\cfttabfont}{\captionLightFont\small}
+    \renewcommand{\cfttabpagefont}{\captionLightFont\small}
+    \renewcommand{\cfttabpresnum}{\myHeaderRegularFont\small 表~}
+    \renewcommand{\cfttabaftersnum}{\captionLightFont\small}
     \setlength{\cfttabnumwidth}{4em}
 
     % Part Cover Page Format (第I部)
