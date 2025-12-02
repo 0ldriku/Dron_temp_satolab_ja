@@ -443,6 +443,31 @@ HDMI Cable 10ft & Cable & 412 & 15 \\
 
 \section{bibファイルの書き方}
 
+下記のファイルを参考するしてもよいと思います。
+\begin{center}
+    \url{https://github.com/ShiroTakeda/jecon-bst/blob/master/jecon-example.bib}
+\end{center}
+
+ただし、日本語で「本の一部でそれ自身に表題があるもの」（英文文献の場合incollection）を引用する場合は、\textit{\textbf{incollectionja}}を使ってください。
+
+下記に例を示す。
+
+\begin{lstlisting}
+@InCollectionja{takeda2012_cge,
+  author       = {武田, 史郎},
+  title        = {応用一般均衡モデルによる地球温暖化対策の分析：有用性と問題点},
+  editor       = {有村, 俊秀 and 蓬田, 守弘 and 川瀬, 剛志},
+  booktitle    = {地球温暖化対策と国際貿易：排出量取引と国境調整措置をめぐる経済学的・法学的分析},
+  chapter      = 1,
+  pages        = {15--36},
+  publisher    = {東京大学出版会},
+  year         = 2012,
+  langid       = {japanese},
+  yomi         = {takeda, shiro}
+}
+\end{lstlisting}
+
+
 \subsection{英語文献}
 
 標準的な BibTeX フォーマットに従って参考文献エントリを作成してください。以下は一般的なエントリタイプの例です：
@@ -546,7 +571,9 @@ HDMI Cable 10ft & Cable & 412 & 15 \\
 \end{description}
 
 
-中国語の文献でも \texttt{langid=japanese} を使用できますが、参考文献リストでは日本語フォントで表示されます。個人的にはこれで問題ないと考えています。
+中国語の文献でも \texttt{langid=japanese} を使用できますが、参考文献リストでは日本語フォントで表示されます。個人的には問題ないと考えています\twemoji{thumbs up}。
+
+
 
 
 \section{日本語のフォント}
@@ -621,3 +648,70 @@ Overleaf で使用できる和文フォントの一覧は次の記事にあり�
 \paragraph{Korean}
 \textko{
 해객담영주 연도미망신난구 월인어천모 운예명멸혹가도 천모연천향천횡 세발오악엄적성}
+
+
+\section{絵文字}
+
+
+\newcommand{\smokingMan}{%
+\begin{tikzpicture}[baseline=-0.3em, inner sep=0pt]
+    \node at (0,0) {\twemoji[height=1cm]{technologist}};
+    \node[rotate=15] at (0.8em, 0.05em) {\twemoji[height=0.5cm]{cigarette}};
+\end{tikzpicture}
+}
+
+
+
+論文では使わないと思いますが\smokingMan
+
+\subsection{1. Faces \& Emotions}
+\begin{tabular}{cll}
+\toprule
+\textbf{Icon} & \textbf{Command} & \textbf{Description} \\
+\midrule
+\twemoji{smile} & \verb|\twemoji{smile}| & Standard smile \\
+\twemoji{joy} & \verb|\twemoji{joy}| & Tears of joy \\
+\twemoji{wink} & \verb|\twemoji{wink}| & Winking face \\
+\twemoji{thinking face} & \verb|\twemoji{thinking face}| & Thinking \\
+\twemoji{sparkles} & \verb|\twemoji{sparkles}| & Sparkles \\
+\bottomrule
+\end{tabular}
+
+\subsection{2. Hands \& Gestures}
+\begin{tabular}{cll}
+\toprule
+\textbf{Icon} & \textbf{Command} & \textbf{Description} \\
+\midrule
+\twemoji{thumbs up} & \verb|\twemoji{thumbs up}| & Thumbs up \\
+\twemoji{wave} & \verb|\twemoji{wave}| & Waving hand \\
+\twemoji{folded hands} & \verb|\twemoji{folded hands}| & Prayer / Thanks \\
+\twemoji{handshake} & \verb|\twemoji{handshake}| & Handshake \\
+\bottomrule
+\end{tabular}
+
+\subsection{3. Objects \& Tech}
+\begin{tabular}{cll}
+\toprule
+\textbf{Icon} & \textbf{Command} & \textbf{Description} \\
+\midrule
+\twemoji{rocket} & \verb|\twemoji{rocket}| & Rocket \\
+\twemoji{bulb} & \verb|\twemoji{bulb}| & Light bulb (Idea) \\
+\twemoji{laptop} & \verb|\twemoji{laptop}| & Laptop computer \\
+\twemoji{calendar} & \verb|\twemoji{calendar}| & Calendar \\
+\twemoji{party popper} & \verb|\twemoji{party popper}| & Celebration \\
+\bottomrule
+\end{tabular}
+
+
+\section{TODO List}
+
+
+\textbf{提出の時は消してください。}
+
+吾輩は\twemoji[height=1cm]{cat}\todo{何猫？}である。名前はまだ無い。どこで生まれたかとんと見当がつかぬが、何でも大岡山のキャンパスの片隅で、空腹に耐えかねてニャーニャー泣いていた事だけは記憶している。吾輩はここで初めて「東工大生」というものを見た。彼らは日夜、研究室という名の檻の中でパソコンと格闘している獰猛な種族であるそうだ。
+
+しかし、吾輩の関心は彼らの研究成果にはない。吾輩が今、魂の底から求めているのは、食堂から漂ってくるあの芳しい香り---すなわち「パワー丼」である。
+
+聞くところによれば、その丼は豚肉と玉ねぎを特製のニンニク醤油ダレで炒め、白飯の上に豪快に盛り付けたものだという。人間どもはそれを食らい、午後からの実験に挑む活力を得ている。吾輩もまた、あの一杯を食せば、ただの猫であることを超越し、論文の一本でも書けるようになるのではないかという気がしてならない。
+
+ああ、パワー丼\todo{大中小？}食べたい。腹が減った。食堂のおばさんよ、吾輩の皿にもその茶色い輝きを分けてはくれぬか。

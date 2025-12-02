@@ -62,9 +62,20 @@
 \usepackage{colortbl}       
 \usepackage{array}         
 \usepackage{amsthm}
+\usepackage{twemojis}
 \usepackage{setspace}
-%\onehalfspacing  % 1.5 line spacing (Japanese standard)
-\setstretch{1.5} 
+\usepackage{tikz}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\setstretch{1.5}% 1.5 line spacing (Japanese standard)
+
+% Custom heading spacing for Japanese academic typography
+% Requires titlesec package (loaded in classicthesis.sty)
+\usepackage{titlesec}
+\titlespacing*{\chapter}{0pt}{1.5\baselineskip}{1.5\baselineskip}
+\titlespacing*{\section}{0pt}{1.5\baselineskip}{1\baselineskip}
+\titlespacing*{\subsection}{0pt}{1.25\baselineskip}{0.75\baselineskip}
+
 \definecolor{headerblue}{RGB}{52, 73, 94}
 \definecolor{lightgray}{RGB}{245, 245, 245}
 
@@ -196,7 +207,7 @@
     \renewcommand{\cftchappagefont}{\myTocSerifFont\normalsize}
     \renewcommand{\cftchappresnum}{\myTocSerifFont\normalsize}
     \renewcommand{\cftchapaftersnumb}{}
-    \setlength{\cftbeforechapskip}{0.1\baselineskip}
+    \setlength{\cftbeforechapskip}{0.2em}
 
     % Section (Gothic Regular, Normal)
     \renewcommand{\cftsecfont}{\myHeaderRegularFont\normalsize}
